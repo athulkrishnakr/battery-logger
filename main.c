@@ -45,29 +45,24 @@ int main(int argc, char * argv[]){
         switch (opt) {
         case 'a':
             ret = writeLog("AC");
-            if(ret == -1)
-                printf("Logging Failed\n");
             break;
         case 'b':
             ret = writeLog("Battery");
-            if(ret == -1)
-                printf("Logging Failed\n");
             break;
         case 's':
             ret = writeLog("Suspend");
-            if(ret == -1)
-                printf("Logging Failed\n");
             break;
         case 'r':
             ret = writeLog("Resume");
-            if(ret == -1)
-                printf("Logging Failed\n");
             break;
         default: /* '?' */
             fprintf(stderr, "Usage: %s [-a] [-b] [-s] [-r]\n", argv[0]);
             exit(1);
         }
     }    
+
+    if(ret == -1)
+        printf("Logging Failed\n");
 
     return 0;
 }
